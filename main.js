@@ -46,7 +46,9 @@ function init()
                 '', '', '',
                 '', '', ''
             ];
-
+    win = null;
+    winner = null;
+    turn = 'X';
     render();
 }
 
@@ -78,22 +80,25 @@ function render()
 
 function handleTurn(event) 
 {
-    let idx = squares.findIndex(
+    let i = squares.findIndex(
         function(square) 
         {
             return square === event.target;
         }
                                );
-    board[idx] = turn;
-
-    if (turn === 'X')
+    if((win == null) && (board[i] != 'X') && (board[i] != 'O')) // if board square is empty and there is no winner then
     {
-        turn = 'O';
+        board[i] = turn;                       // board square becomes the mark of whose turn it is
+        if (turn === 'X')
+        {
+            turn = 'O';
+        }
+        else 
+        {
+            turn = 'X';
+        }
     }
-    else 
-    {
-        turn = 'X';
-    }
+    
     win = getWinner();
     
     render();
