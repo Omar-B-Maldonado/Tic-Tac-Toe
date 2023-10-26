@@ -18,7 +18,7 @@ const winningCombos =
 
 let board;
 
-let turn = 'X';
+let turn;
 
 let win;
 
@@ -47,7 +47,6 @@ function init()
                 '', '', ''
             ];
     win = null;
-    winner = null;
     turn = 'X';
     render();
 }
@@ -86,7 +85,7 @@ function handleTurn(event)
             return square === event.target;
         }
                                );
-    if((win == null) && (board[i] != 'X') && (board[i] != 'O')) // if board square is empty and there is no winner then
+    if((win == null) && (board[i] == '')) // if board square is empty and there is no winner then
     {
         board[i] = turn;                       // board square becomes the mark of whose turn it is
         if (turn === 'X')
