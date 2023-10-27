@@ -70,7 +70,7 @@ function App()
    
     return (
       <div>
-        <h1>Tic-Tac-Toe</h1>
+        <h1>Tic-REACT-Toe</h1>
   
         <h2>{message}</h2>
   
@@ -89,5 +89,5 @@ function App()
       </div>
     );
   }
-  
+
   ReactDOM.render(<App />, root);
